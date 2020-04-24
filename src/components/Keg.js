@@ -4,13 +4,14 @@ import PropTypes from 'prop-types';
 function Keg(props) {
   return (
     <React.Fragment>
-      <hr />
+      
       <div className="col-md-3">
         <p>name: {props.name}</p>
         <p>brand: {props.brand}</p>
         <p>price per pint: ${props.price}</p>
         <p>alcohol content: {props.alcoholContent}%</p>
         <p>pints: {props.pints}</p>
+      <hr />
       </div>
     </React.Fragment>
   );

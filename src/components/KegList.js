@@ -1,13 +1,15 @@
 import React from 'react';
 import Keg from './Keg'
-import masterKegList from './MasterKegList';
+import PropTypes from 'prop-types';
 
-function KegList() {
+// import masterKegList from './MasterKegList';
+
+function KegList(props) {
   return (
     <React.Fragment>
       <h3>KegList</h3>
       <div className="row">
-        {masterKegList.map((keg, index) =>
+        {props.kegList.map((keg, index) =>
         <Keg 
         name={keg.name}
         brand={keg.brand}
@@ -20,5 +22,9 @@ function KegList() {
     </React.Fragment>
   );
 }
+
+KegList.propTypes = {
+  kegList: PropTypes.array
+};
 
 export default KegList;
