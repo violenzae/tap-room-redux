@@ -9,7 +9,7 @@ function Keg(props) {
     <React.Fragment>
       
       <div className="col-md-3" onClick= {() => props.whenKegClicked(props.id)}>
-        <p>name: {props.name}</p>
+        <p><em>{props.name}</em></p>
         <p>{props.pints} pints remaining, {remaining}%</p>
       <hr />
       </div>

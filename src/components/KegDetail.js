@@ -8,6 +8,7 @@ function KegDetail(props) {
 
   return (
     <React.Fragment>
+      <div>
       <h3>{keg.name} Details</h3>
       <p>brand: {keg.brand}</p>
       <p>price per pint: ${keg.price}</p>
@@ -29,6 +30,8 @@ function KegDetail(props) {
         }
           {/* <p>buy---restock--delete</p> */}
         </div>
+        </div>
+        <br/>
     </React.Fragment>
   );
 }

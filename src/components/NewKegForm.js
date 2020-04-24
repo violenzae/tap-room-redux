@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 
 function NewKegForm(props) {
 
-  const formStyle = {
+  const formStyle = { 
     paddingTop: '50px',
-    width: '60%' 
+    width: '60%', 
   }
 
   function handleNewKegFormSubmission(event) {
