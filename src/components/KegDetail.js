@@ -18,14 +18,14 @@ function KegDetail(props) {
         { keg.pints <= 0 &&
             <p>out of stock!</p>
         }
-        { keg.pints < 10 && keg.pints > 0 &&
+        { keg.pints <= 10 && keg.pints > 0 &&
           <div>
             <p>almost empty!</p>
-            <button onClick={() => onBuyItem(keg.id)}>buy</button>
+            <button onClick={() => onBuyItem(keg.id)}>sell</button>
           </div>
         }
         { keg.pints > 10 &&
-          <button onClick={() => onBuyItem(keg.id)}>buy</button>
+          <button onClick={() => onBuyItem(keg.id)}>sell</button>
         }
           {/* <p>buy---restock--delete</p> */}
         </div>

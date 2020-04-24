@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 // import masterKegList from './MasterKegList';
 
 function KegList(props) {
-  const {onBuyItem} = props;
+
   const listStyle = {
     paddingTop: '20px'
   }
@@ -23,8 +23,7 @@ function KegList(props) {
           alcoholContent={keg.alcoholContent}
           pints={keg.pints}
           key = {keg.id} 
-          id = {keg.id}
-          buyItem = {onBuyItem}/>
+          id = {keg.id}/>
           )}
         </div>
       </div>
