@@ -39,9 +39,9 @@ class KegControl extends React.Component {
 
   handleBuyingItem = (id) => {
     const selectedItem = this.state.masterKegList.filter(item => item.id === id)[0];
-    const newItemInfo = selectedItem.quantity -1;
+    const newItemInfo = selectedItem.pints -1;
     const removingOldItem = this.state.masterKegList.filter(item => item.id !== id);
-    const newItem = {...selectedItem, quantity: newItemInfo};
+    const newItem = {...selectedItem, pints: newItemInfo};
     const newmasterKegList = removingOldItem.concat(newItem);
     this.setState({ masterKegList: newmasterKegList})
   }
@@ -50,7 +50,7 @@ class KegControl extends React.Component {
     let currentlyVisible = null;
     let buttonText = null;
     if (this.state.selectedKeg != null){
-      currentlyVisible = <KegDetail keg={this.state.selectedKeg}/>
+      currentlyVisible = <KegDetail onBuyItem={this.handleBuyingItem} keg={this.state.selectedKeg}/>
       buttonText = "return to keg list"
     } else if (this.state.formVisible){
       currentlyVisible = <NewKegForm onNewKegCreation={this.handleAddingNewKegToList}/>
