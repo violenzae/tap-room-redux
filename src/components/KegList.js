@@ -5,19 +5,24 @@ import PropTypes from 'prop-types';
 // import masterKegList from './MasterKegList';
 
 function KegList(props) {
+  const listStyle = {
+    paddingTop: '20px'
+  }
   return (
     <React.Fragment>
-      <h3>KegList</h3>
-      <div className="row">
-        {props.kegList.map((keg, index) =>
-        <Keg 
-        name={keg.name}
-        brand={keg.brand}
-        price={keg.price}
-        alcoholContent={keg.alcoholContent}
-        pints={keg.pints}
-        key = {index} />
-        )}
+      <div style={listStyle}>
+        <h3>KegList</h3><br></br>
+        <div className="row">
+          {props.kegList.map((keg, index) =>
+          <Keg 
+          name={keg.name}
+          brand={keg.brand}
+          price={keg.price}
+          alcoholContent={keg.alcoholContent}
+          pints={keg.pints}
+          key = {index} />
+          )}
+        </div>
       </div>
     </React.Fragment>
   );
