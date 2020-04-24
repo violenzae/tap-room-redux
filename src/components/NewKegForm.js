@@ -1,6 +1,6 @@
 import React from 'react';
 
-function NewKegForm() {
+function NewKegForm(props) {
   return (
     <React.Fragment>
       <h3>NewKegForm</h3>
