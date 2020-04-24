@@ -1,15 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Progress from 'react-progressbar';
+
 
 function Keg(props) {
   const remaining = Math.round(props.pints/124 *100.);
-
+  
+  let barStyle = {
+    width: '0%'
+  }
 
   return (
     <React.Fragment>
+
+      
       
       <div className="col-md-3" onClick= {() => props.whenKegClicked(props.id)}>
         <p><em>{props.name}</em></p>
+        <Progress color="#d73219" completed={remaining} />
         <p>{props.pints} pints remaining, {remaining}%</p>
       <hr />
       </div>

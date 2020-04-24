@@ -12,7 +12,8 @@ function KegList(props) {
   return (
     <React.Fragment>
       <div style={listStyle}>
-        <h3>KegList</h3><br></br>
+        <h3>kegList</h3><br />
+        <p>click one for more details</p><br />
         <div className="row">
           {props.kegList.map((keg, index) =>
           <Keg 

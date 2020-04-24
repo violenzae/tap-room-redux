@@ -43,6 +43,7 @@ _Have a bug or an issue with this application? [Open a new issue](https://github
 * HTML & CSS
 * Bootstrap 4
 * Create React App
+* react-progressbar (https://www.npmjs.com/package/react-progressbar)
 
 ### License
 
