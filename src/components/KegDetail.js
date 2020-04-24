@@ -1,4 +1,5 @@
 import React from 'react';
+// import masterKegList from './MasterKegList';
 
 function KegDetail() {
   return (

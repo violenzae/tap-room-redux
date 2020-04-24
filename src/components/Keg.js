@@ -4,12 +4,14 @@ import PropTypes from 'prop-types';
 function Keg(props) {
   return (
     <React.Fragment>
-      <h3>Keg</h3>
-      <p>name: {props.name}</p>
-      <p>brand: {props.brand}</p>
-      <p>price: {props.price}</p>
-      <p>alcohol content: {props.alcoholContent}%</p>
-      <p>pints: {props.pints}</p>
+      <hr />
+      <div className="col-md-3">
+        <p>name: {props.name}</p>
+        <p>brand: {props.brand}</p>
+        <p>price per pint: ${props.price}</p>
+        <p>alcohol content: {props.alcoholContent}%</p>
+        <p>pints: {props.pints}</p>
+      </div>
     </React.Fragment>
   );
 }
@@ -17,7 +19,7 @@ function Keg(props) {
 Keg.propTypes = {
   name: PropTypes.string,
   brand: PropTypes.string,
-  price: PropTypes.string,
+  price: PropTypes.number,
   alcoholContent: PropTypes.number,
   pints: PropTypes.number
 };
