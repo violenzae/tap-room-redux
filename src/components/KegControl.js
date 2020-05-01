@@ -43,9 +43,9 @@ class KegControl extends React.Component {
     const { dispatch } = this.props;
     const action = a.buyItem(id);
     dispatch(action);
-    const selectedKeg = this.props.masterKegList[id];
-    const action2 = a.selectKeg(selectedKeg);
-    dispatch(action2);
+    // const selectedKeg = this.props.masterKegList[id];
+    // const action2 = a.selectKeg(selectedKeg);
+    // dispatch(action2);
   }
 
   render() {
