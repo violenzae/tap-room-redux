@@ -16,12 +16,16 @@ class KegControl extends React.Component {
   }
 
   handleClick = () => {
+    const { dispatch } = this.props;
+    if (this.props.selectedKeg != null){
+      const action2 = a.deselectKeg();
+      dispatch(action2); 
+    } else {
       const { dispatch } = this.props;
       const action = a.toggleForm();
       dispatch(action);
-      const action2 = a.deselectKeg();
-      dispatch(action2);        
     }
+  }
   
 
   handleAddingNewKegToList = (newKeg) => {
@@ -43,9 +47,9 @@ class KegControl extends React.Component {
     const { dispatch } = this.props;
     const action = a.buyItem(id);
     dispatch(action);
-    // const selectedKeg = this.props.masterKegList[id];
-    // const action2 = a.selectKeg(selectedKeg);
-    // dispatch(action2);
+    const selectedKeg = this.props.masterKegList[id];
+    const action2 = a.selectKeg(selectedKeg);
+    dispatch(action2);
   }
 
   render() {
