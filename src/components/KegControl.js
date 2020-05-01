@@ -34,7 +34,7 @@ class KegControl extends React.Component {
 
   handleChangingSelectedKeg = (id) => {
     const { dispatch } = this.props;
-    const selectedKeg = this.props.masterTicketList[id];
+    const selectedKeg = this.props.masterKegList[id];
     const action = a.selectKeg(selectedKeg);
     dispatch(action);
   }
@@ -43,7 +43,7 @@ class KegControl extends React.Component {
     const { dispatch } = this.props;
     const action = a.buyItem(id);
     dispatch(action);
-    const selectedKeg = this.props.masterTicketList[id];
+    const selectedKeg = this.props.masterKegList[id];
     const action2 = a.selectKeg(selectedKeg);
     dispatch(action2);
   }
