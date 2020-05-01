@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import KegList from './KegList';
 import KegDetail from './KegDetail';
 import NewKegForm from './NewKegForm';
+import PropTypes from 'prop-types';
 
 
 class KegControl extends React.Component {
@@ -44,17 +45,18 @@ class KegControl extends React.Component {
   }
 
   handleChangingSelectedKeg = (id) => {
-    const selectedKeg = this.state.masterKegList.filter(keg => keg.id === id)[0];
+    const selectedKeg = this.props.masterTicketList[id];
     this.setState({selectedKeg: selectedKeg});
   }
 
   handleBuyingItem = (id) => {
-    const selectedItem = this.state.masterKegList.filter(item => item.id === id)[0];
-    const newItemInfo = selectedItem.pints -1;
-    const removingOldItem = this.state.masterKegList.filter(item => item.id !== id);
-    const newItem = {...selectedItem, pints: newItemInfo};
-    const newmasterKegList = removingOldItem.concat(newItem);
-    this.setState({ masterKegList: newmasterKegList, selectedKeg: newItem})
+    const { dispatch } = this.props;
+    const action = {
+      type: 'BUY_ITEM',
+      id: id
+    };
+    dispatch(action);
+    // this.setState({selectedKeg: newItem})
   }
 
   render() {
@@ -67,7 +69,7 @@ class KegControl extends React.Component {
       currentlyVisible = <NewKegForm onNewKegCreation={this.handleAddingNewKegToList}/>
       buttonText = "return to keg list";
     } else {
-      currentlyVisible = <KegList kegList={this.state.masterKegList} onKegSelection={this.handleChangingSelectedKeg} />      
+      currentlyVisible = <KegList kegList={this.props.masterKegList} onKegSelection={this.handleChangingSelectedKeg} />      
       buttonText = "add a new keg";
     }
     return (
@@ -79,6 +81,16 @@ class KegControl extends React.Component {
   }
 }
 
-KegControl = connect()(KegControl);
+KegControl.propTypes = {
+  masterKegList: PropTypes.object
+};
+
+const mapStateToProps = state => {
+  return {
+    masterKegList: state
+  }
+}
+
+KegControl = connect(mapStateToProps)(KegControl);
 
 export default KegControl;
