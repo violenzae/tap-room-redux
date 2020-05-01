@@ -15,17 +15,17 @@ function KegList(props) {
         <h3>kegList</h3><br />
         <p>click one for more details</p><br />
         <div className="row">
-          {props.kegList.map((keg, index) =>
-          <Keg 
-          whenKegClicked={props.onKegSelection}
-          name={keg.name}
-          brand={keg.brand}
-          price={keg.price}
-          alcoholContent={keg.alcoholContent}
-          pints={keg.pints}
-          key = {keg.id} 
-          id = {keg.id}/>
-          )}
+          {Object.values(props.kegList).map((keg) => {
+            return <Keg 
+            whenKegClicked={props.onKegSelection}
+            name={keg.name}
+            brand={keg.brand}
+            price={keg.price}
+            alcoholContent={keg.alcoholContent}
+            pints={keg.pints}
+            key = {keg.id} 
+            id = {keg.id}/>
+            })}
         </div>
       </div>
     </React.Fragment>
@@ -33,7 +33,7 @@ function KegList(props) {
 }
 
 KegList.propTypes = {
-  kegList: PropTypes.array,
+  kegList: PropTypes.object,
   onKegSelection: PropTypes.func
 };
 
