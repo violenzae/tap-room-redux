@@ -30,7 +30,6 @@ Keg.propTypes = {
   pints: PropTypes.number,
   id: PropTypes.string,
   whenKegClicked: PropTypes.func
-
 };
 
 export default Keg;

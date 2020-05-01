@@ -4,6 +4,7 @@ import KegList from './KegList';
 import KegDetail from './KegDetail';
 import NewKegForm from './NewKegForm';
 import PropTypes from 'prop-types';
+import * as a from './../actions';
 
 
 class KegControl extends React.Component {
@@ -11,62 +12,47 @@ class KegControl extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedKeg: null
     };
   }
+
   handleClick = () => {
-    if (this.state.selectedKeg != null){
-      this.setState({
-        selectedKeg: null
-      })
-      } else {
-        const { dispatch } = this.props;
-        const action = {
-          type: "TOGGLE_FORM",
-        };
-        dispatch(action);
+      const { dispatch } = this.props;
+      const action = a.toggleForm();
+      dispatch(action);
+      const action2 = a.deselectKeg();
+      dispatch(action2);        
     }
-  }
+  
 
   handleAddingNewKegToList = (newKeg) => {
     const { dispatch } = this.props;
-    const { name, brand, alcoholContent, price, pints, id } = newKeg;
-    const action = {
-      type: 'ADD_KEG',
-      name: name,
-      brand: brand,
-      alcoholContent: alcoholContent,
-      price: price,
-      pints: pints,
-      id: id
-    };
+    const action = a.addKeg(newKeg);
     dispatch(action);
-    const action2 = {
-      type: 'TOGGLE_FORM'
-    }
+    const action2 = a.toggleForm();
     dispatch(action2);
   }
 
   handleChangingSelectedKeg = (id) => {
+    const { dispatch } = this.props;
     const selectedKeg = this.props.masterTicketList[id];
-    this.setState({selectedKeg: selectedKeg});
+    const action = a.selectKeg(selectedKeg);
+    dispatch(action);
   }
 
   handleBuyingItem = (id) => {
     const { dispatch } = this.props;
-    const action = {
-      type: 'BUY_ITEM',
-      id: id
-    };
+    const action = a.buyItem(id);
     dispatch(action);
-    // this.setState({selectedKeg: newItem})
+    const selectedKeg = this.props.masterTicketList[id];
+    const action2 = a.selectKeg(selectedKeg);
+    dispatch(action2);
   }
 
   render() {
     let currentlyVisible = null;
     let buttonText = null;
-    if (this.state.selectedKeg != null){
-      currentlyVisible = <KegDetail onBuyItem={this.handleBuyingItem} keg={this.state.selectedKeg}/>
+    if (this.props.selectedKeg != null){
+      currentlyVisible = <KegDetail onBuyItem={this.handleBuyingItem} keg={this.props.selectedKeg}/>
       buttonText = "return to keg list"
     } else if (this.props.formVisible){
       currentlyVisible = <NewKegForm onNewKegCreation={this.handleAddingNewKegToList}/>
@@ -91,7 +77,8 @@ KegControl.propTypes = {
 const mapStateToProps = state => {
   return {
     masterKegList: state.masterKegList,
-    formVisible: state.formVisible
+    formVisible: state.formVisible,
+    selectedKeg: state.selectedKeg
   }
 }
 
