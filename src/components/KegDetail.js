@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Keg from './Keg';
+
 
 function KegDetail(props) {
   const {keg, onBuyItem} = props;

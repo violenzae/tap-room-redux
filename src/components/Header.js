@@ -16,7 +16,7 @@ function Header() {
       <div style={headerStyle} className="navbar navbar-expand-lg navbar-dark bg-dark">
         <h1>Pierre's Pub</h1>
         <div id="beerDiv">
-          <img style={beerStyle} src={beer}/>
+          <img style={beerStyle} src={beer} alt="mr beermanson"/>
         </div>
       </div>
     </React.Fragment>

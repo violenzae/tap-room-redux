@@ -6,9 +6,6 @@ import Progress from 'react-progressbar';
 function Keg(props) {
   const remaining = Math.round(props.pints/124 *100.);
   
-  let barStyle = {
-    width: '0%'
-  }
 
   return (
     <React.Fragment>
