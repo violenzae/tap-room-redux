@@ -12,6 +12,11 @@ export default (state = {}, action) => {
         id: id
       }
     });
+    case 'BUY_ITEM':
+       const newPint = (state[id].pints -= 1);
+       const newState = {...state, [id]: {...state[id], pints: newPint}};
+       return newState;
+  // case 'KEG_BUY_LIST_UPDATE'
   default:
     return state;
   }

@@ -4,14 +4,20 @@ import './index.css';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 import { createStore } from 'redux';
-import reducer from './reducers/keg-list-reducer';
+import reducer from './components/reducers/keg-list-reducer'
+import { Provider } from 'react-redux';
+
 
 const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
+store.subscribe(() =>
+  console.log(store.getState())
+);
+
 ReactDOM.render(
-  <React.StrictMode>
+ <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 
