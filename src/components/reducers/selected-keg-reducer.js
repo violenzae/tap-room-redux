@@ -13,5 +13,7 @@ export default (state = null, action) => {
       return thisKeg;
       case 'DESELECT_KEG':
         return null;
+      default:
+        return state;
       }
   }
