@@ -11,7 +11,7 @@ function NewKegForm(props) {
 
   function handleNewKegFormSubmission(event) {
     event.preventDefault();
-    props.onNewKegCreation({name: event.target.name.value, brand: event.target.brand.value, price: event.target.price.value, alcoholContent: event.target.alcoholContent.value, pints: 124, id: v4()});
+    props.onNewKegCreation({name: event.target.name.value, brand: event.target.brand.value, price: parseInt(event.target.price.value), alcoholContent: parseInt(event.target.alcoholContent.value), pints: 124, id: v4()});
 
     }
   
@@ -41,10 +41,6 @@ function NewKegForm(props) {
             type='number'
             name='alcoholContent'
             placeholder='% alcohol content' /><br/>
-          {/* <input className="form-control"
-            type='hidden'
-            name='pints'
-            value='124' />     */}
 
           <button type='submit'>add</button>
         </form>
